@@ -1,0 +1,37 @@
+Certainly! Here's a step-by-step guide to creating a simple QR code generator using Python
+
+--> Step 1: Install the required library
+ install the qrcode library along with the Pillow library (for image handling):
+pip install qrcode[pil]
+--> Step 2: Create a Python script
+--> Step 3: Write the code
+                                                        # Import the required libraries
+                                                        import qrcode
+                                                        
+                                                        def generate_qr_code(data, file_name='qrcode.png'):
+                                                            # Create an instance of the QRCode class
+                                                            qr = qrcode.QRCode(
+                                                                version=1,
+                                                                error_correction=qrcode.constants.ERROR_CORRECT_L,
+                                                                box_size=10,
+                                                                border=4,
+                                                            )
+                                                        
+                                                            # Add data to the QR code
+                                                            qr.add_data(data)
+                                                            qr.make(fit=True)
+                                                        
+                                                            # Create an image from the QR Code instance
+                                                            img = qr.make_image(fill_color="black", back_color="white")
+                                                        
+                                                            # Save the image to a file
+                                                            img.save(file_name)
+                                                        
+                                                        if __name__ == "__main__":
+                                                            # Example usage
+                                                            data_to_encode = "https://github.com/"   //So thos is the link of that Website i taken as a output
+                                                            generate_qr_code(data_to_encode)
+
+
+//RUN THE SCRIPT I PREFER USE IN VS CODE AFTER DOWNLOADING ALL THE FILE'S THAT I MENTIONED ABOVE. 
+//IT IS EASY TO GET OUTPUT FROM VS CODE..
